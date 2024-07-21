@@ -1,0 +1,7 @@
+static folder me hmare photo,video,CSS-file,js-file
+Ye Sb Content Hote h Jo ki hmari Website Ko Design Krte H
+
+{
+    static file is the collection of Photo,video,CSS-file,js-file
+    which is organize and maintain our site
+}

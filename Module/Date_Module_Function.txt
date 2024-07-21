@@ -1,0 +1,19 @@
+List of Date Class Methods
+Function Name 	
+
+Description
+
+ctime()			Return a string representing the date
+fromisocalendar()	Returns a date corresponding to the ISO calendar
+fromisoformat()		Returns a date object from the string representation of the date
+fromordinal()		Returns a date object from the proleptic Gregorian ordinal, where January 1 of year 1 has ordinal 1
+fromtimestamp()		Returns a date object from the POSIX timestamp
+isocalendar()		Returns a tuple year, week, and weekday
+isoformat()		Returns the string representation of the date
+isoweekday()		Returns the day of the week as an integer where Monday is 1 and Sunday is 7
+replace()		Changes the value of the date object with the given parameter
+strftime()		Returns a string representation of the date with the given format
+timetuple()		Returns an object of type time.struct_time
+today()	Returns 	the current local date
+toordinal()		Return the proleptic Gregorian ordinal of the date, where January 1 of year 1 has ordinal 1
+weekday()		Returns the day of the week as integer where Monday is 0 and Sunday is 6

@@ -1,0 +1,7 @@
+Monday : Roti
+Tuesday : Roti
+Wednesday : Roti
+Thusday : Roti
+Friday : Roti
+Sutrday : Roti
+Sunday : Roti

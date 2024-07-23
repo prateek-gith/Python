@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <textarea name="" id="Text" cols="30" rows="10"></textarea>
+    <button id="button" onclick="textToSpeech()"> Speech</button>
+</body>
+<script>
+    const TextInput=document.querySelector("#Text");
+
+    function textToSpeech(){
+        const msg = new SpeechSynthesisUtterance(TextInput.value);
+        msg.voice=speechSynthesis.getVoices()[0];
+        speechSynthesis.speak(msg);
+    }
+</script>
+</html>

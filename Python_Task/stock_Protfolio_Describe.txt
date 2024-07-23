@@ -1,0 +1,85 @@
+Let's break down the code line by line:
+
+1. `import yfinance as yf`:
+   - This line imports the `yfinance` library and aliases it as `yf`. `yfinance` is a Python library that allows you to fetch financial data from Yahoo Finance.
+
+2. `class StockPortfolio:`:
+   - This line defines a Python class named `StockPortfolio`. Classes are blueprints for creating objects in Python.
+
+3. `def __init__(self):`:
+   - This line defines the constructor method (`__init__`) for the `StockPortfolio` class. The constructor is called automatically when an object of the class is created. It initializes the `stocks` attribute as an empty dictionary.
+
+4. `self.stocks = {}`:
+   - This line initializes the `stocks` attribute of the `StockPortfolio` class as an empty dictionary. This attribute will store information about the stocks in the portfolio.
+
+5. `def add_stock(self, symbol, quantity):`:
+   - This line defines a method named `add_stock` within the `StockPortfolio` class. This method allows adding a stock to the portfolio. It takes two parameters: `symbol` (the stock symbol) and `quantity` (the quantity of shares to add).
+
+6. `if symbol in self.stocks:`:
+   - This line checks if the stock symbol already exists in the `stocks` dictionary (i.e., if the stock is already in the portfolio).
+
+7. `self.stocks[symbol]['quantity'] += quantity`:
+   - If the stock symbol already exists in the portfolio, this line increases the quantity of shares for that stock by the specified `quantity`.
+
+8. `else:`:
+   - If the stock symbol does not exist in the portfolio, this line is executed.
+
+9. `self.stocks[symbol] = {'quantity': quantity}`:
+   - This line adds a new entry to the `stocks` dictionary with the stock symbol as the key and a dictionary containing the quantity of shares as the value.
+
+10. `def remove_stock(self, symbol):`:
+    - This line defines a method named `remove_stock` within the `StockPortfolio` class. This method allows removing a stock from the portfolio. It takes one parameter: `symbol` (the stock symbol to remove).
+
+11. `if symbol in self.stocks:`:
+    - This line checks if the specified stock symbol exists in the portfolio.
+
+12. `del self.stocks[symbol]`:
+    - If the stock symbol exists in the portfolio, this line removes the entry corresponding to that symbol from the `stocks` dictionary.
+
+13. `else:`:
+    - If the specified stock symbol does not exist in the portfolio, this line is executed.
+
+14. `print(f"{symbol} is not in the portfolio.")`:
+    - This line prints a message indicating that the specified stock symbol is not in the portfolio.
+
+15. `def track_performance(self):`:
+    - This line defines a method named `track_performance` within the `StockPortfolio` class. This method allows tracking the performance of the entire portfolio.
+
+16. `total_value = 0`:
+    - This line initializes the `total_value` variable to zero. This variable will be used to calculate the total value of the portfolio.
+
+17. `for symbol, data in self.stocks.items():`:
+    - This line iterates over each key-value pair in the `stocks` dictionary. The `symbol` variable stores the stock symbol, and the `data` variable stores the corresponding dictionary containing the quantity of shares.
+
+18. `stock = yf.Ticker(symbol)`:
+    - This line creates a `Ticker` object using the `yfinance` library for the specified stock symbol. The `Ticker` object represents the stock and provides methods to fetch its data.
+
+19. `current_price = stock.history(period="1d")['Close'][0]`:
+    - This line fetches the historical market data for the specified stock for the last trading day (period of one day) and retrieves the closing price (`Close`) of the stock. It then selects the first element (index 0) of the closing prices, which represents the most recent closing price.
+
+20. `value = current_price * data['quantity']`:
+    - This line calculates the value of the stock in the portfolio by multiplying the current price (`current_price`) by the quantity of shares (`data['quantity']`).
+
+21. `print(f"{symbol}: Quantity={data['quantity']}, Current Price={current_price}, Value={value}")`:
+    - This line prints information about the stock, including its symbol, quantity of shares, current price, and value in the portfolio.
+
+22. `total_value += value`:
+    - This line adds the value of the current stock to the total value of the portfolio.
+
+23. `print(f"Total Portfolio Value: {total_value}")`:
+    - This line prints the total value of the portfolio after iterating over all stocks.
+
+24. `portfolio = StockPortfolio()`:
+    - This line creates an instance of the `StockPortfolio` class named `portfolio`.
+
+25. `portfolio.add_stock("AAPL", 10)` and `portfolio.add_stock("GOOGL", 5)`:
+    - These lines add stocks to the portfolio. The first line adds 10 shares of Apple (AAPL) stock, and the second line adds 5 shares of Google (GOOGL) stock.
+
+26. `portfolio.track_performance()`:
+    - This line tracks the performance of the portfolio by calculating the total value of all stocks in the portfolio.
+
+27. `portfolio.remove_stock("AAPL")`:
+    - This line removes the Apple (AAPL) stock from the portfolio.
+
+28. `portfolio.track_performance()`:
+    - This line tracks the performance of the portfolio again after removing the Apple stock.

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Speech to Text</title>
+</head>
+<body>
+    <h1>Speech to Text</h1>
+    <button id="start-btn">Start</button>
+    <button id="stop-btn" disabled>Stop</button>
+    <p id="output"></p>
+
+</body>
+<script>
+    const startBtn = document.getElementById("start-btn");
+    const stopBtn = document.getElementById("stop-btn");
+    const output = document.getElementById("output");
+    let recognition = new webkitSpeechRecognition();
+
+    recognition.continuous = true;
+    recognition.interimResults = true;
+    recognition.lang = 'en-US';
+
+    startBtn.addEventListener('click', () => {
+        recognition.start();
+        startBtn.disabled = true;
+        stopBtn.disabled = false;
+        output.textContent = 'Listening...';
+    });
+
+    stopBtn.addEventListener('click', () => {
+        recognition.stop();
+        startBtn.disabled = false;
+        stopBtn.disabled = true;
+        output.textContent = '';
+    });
+
+    recognition.onresult = (event) => {
+        const transcript = Array.from(event.results)
+            .map(result => result[0].transcript)
+            .join('');
+
+        output.textContent = transcript;
+    };
+
+    recognition.onend = () => {
+        output.textContent += ' (Speech recognition ended)';
+    };
+</script>
+</html>
+
+
+<!-- This code sets up a basic web page with buttons to start and stop speech recognition. When you click "Start", it starts listening for speech and displays the recognized text in a paragraph element. When you click "Stop", it stops listening. -->

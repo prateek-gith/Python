@@ -1,0 +1,9 @@
+flask
+flask_sqlalchemy
+myqlclint
+flask-mail
+mysql-python
+MySQLdb
+requests
+pygame 
+gtts

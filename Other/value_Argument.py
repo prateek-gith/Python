@@ -7,9 +7,17 @@ def find_sum(*numbers):
         result = result + num
     
     print("Sum = ", result)
+    
+def find_multiply(*numbers):
+    result = 1
+    
+    for num in numbers:
+        result = result * num
+    
+    print("Sum = ", result)
 
 # function call with 3 arguments
 find_sum(1, 2, 3)
 
 # function call with 2 arguments
-find_sum(4, 9)
+find_multiply(4, 9)
